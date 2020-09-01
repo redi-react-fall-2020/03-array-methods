@@ -1,65 +1,30 @@
 const core = require("./index");
 
-describe("1) returnTheString()", function () {
-  it("Given a string, return the string", function () {
-    var string = "Hello World!";
-    var expected = "Hello World!";
-    var actual = core.returnTheString(string);
-
-    expect(actual).toEqual(expected);
+describe("1) Invert array values", function(){
+  it("Basic Tests", function(){
+    expect(core.invert([1,2,3,4,5])).toEqual([-1,-2,-3,-4,-5]);
+    expect(core.invert([1,-2,3,-4,5])).toEqual([-1,2,-3,4,-5]);
+    expect(core.invert([])).toEqual([]);
   });
 });
 
-describe("1) splitTheString()", function () {
-  it("Given a string, turn it into an array of the letters in the string", function () {
-    var string = "Hello World!";
-    var expected = ["H", "e", "l", "l", "o", " ", "W", "o", "r", "l", "d", "!"];
-    var actual = core.splitTheString(string);
+describe("2) Counting ship number", function(){
+  it("Basic Tests", function(){
+    const array1 = [true,  true,  true,  false,
+      true,  true,  true,  true ,
+      true,  false, true,  false,
+      true,  false, false, true ,
+      true,  true,  true,  true ,
+      false, false, true,  true ];
 
-    expect(actual).toEqual(expected);
+    expect(core.countSheeps(arra1)).toEqual(17)
   });
 });
 
-describe("2) shallowCopyObject()", function () {
-  it("Given an object, return a shallow copy of the object", function () {
-    var object = {a: 1, b: 2, c: 3};
-    var expected = {a: 1, b: 2, c: 3};
-    var actual = core.shallowCopyObject(object);
-
-    expect(actual === expected).toBe(false);
-    expect(actual).toEqual(expected);
-  });
-});
-
-describe("3) shallowCopyArray()", function () {
-  it("Given an array, return a shallow copy of the array", function () {
-    var array = [1, 2, 3];
-    var expected = [1, 2, 3];
-    var actual = core.shallowCopyArray(array);
-
-    expect(actual === expected).toBe(false);
-    expect(actual).toEqual(expected);
-  });
-});
-
-describe("4) MergeTwoObjects()", function () {
-  it("Given two objects, turn them into one object that contains the properties of both objects", function () {
-    var object1 = { a: 1, b: 2 };
-    var object2 = { c: 3, d: 4 };
-    var expected = { a: 1, b: 2, c: 3, d: 4 };
-    var actual = core.mergeTwoObjects(object1, object2);
-
-    expect(actual).toEqual(expected);
-  });
-});
-
-describe("5) CombineTwoArrays()", function () {
-  it("Given two arrays, turn them into one array containing all elements of both arrays", function () {
-    var array1 = [1, 2, 3];
-    var array2 = [4, 5, 6];
-    var expected = [1, 2, 3, 4, 5, 6];
-    var actual = core.combineTwoArrays(array1, array2);
-
-    expect(actual).toEqual(expected);
+describe("3) Number of people in the bus", function(){
+  it("Basic Tests", function(){
+    expect(core.peopleInBus([[10,0],[3,5],[5,8]])).toEqual(5);
+    expect(core.peopleInBus([1,-2,3,-4,5])).toEqual(17);
+    expect(core.peopleInBus([[3,0],[9,1],[4,8],[12,2],[6,1],[7,8]])).toEqual(21);
   });
 });
